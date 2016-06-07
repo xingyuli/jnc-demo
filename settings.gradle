@@ -1,0 +1,3 @@
+rootProject.name = "jnc-demo"
+
+include 'rest-api'

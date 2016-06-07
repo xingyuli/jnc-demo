@@ -1,0 +1,13 @@
+
+dependencies {
+    compile "com.sparkjava:spark-core:$sparkjava_version"
+    compile "com.typesafe:config:$typesafe_config_version"
+    compile "com.google.code.gson:gson:$gson_version"
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': 1.0
+        attributes 'Main-Class': 'com.sap.jnc.demo.rest.MainKt'
+    }
+}

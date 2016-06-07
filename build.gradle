@@ -1,0 +1,51 @@
+
+buildscript {
+    ext {
+        kotlin_version = '1.0.2'
+        sparkjava_version = '2.5'
+        typesafe_config_version = '1.3.0'
+        gson_version = '2.6.2'
+
+        junit_version = '4.11'
+    }
+
+    repositories {
+        maven {
+            url "http://repo.mobisist.com/repository/maven-public/"
+        }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.3'
+    }
+}
+
+allprojects {
+    apply plugin: 'idea'
+
+    group 'com.sap.jnc.demo'
+    version '1.0-SNAPSHOT'
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+    apply plugin: 'com.github.johnrengelman.shadow'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    compileJava.options.encoding = 'UTF-8'
+
+    repositories {
+        maven {
+            url "http://repo.mobisist.com/repository/maven-public/"
+        }
+    }
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+        testCompile "junit:junit:$junit_version"
+    }
+}
